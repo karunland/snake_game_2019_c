@@ -192,7 +192,7 @@ int main()
 			if (a == x1 && b == y1)
 			{
 				score++ ; i++ ;
-				
+				printf("\a");
 				srand(time(NULL));
 				x1 = rand() % 77 + 1;
 				y1 = rand() % 24 + 1;
