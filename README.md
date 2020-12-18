@@ -10,7 +10,8 @@ do not start with 'a' key ,snake eats itselves.
 
 
 
-![Untitleaaaaaaaaaaaaa](https://user-images.githubusercontent.com/58360416/102596348-1adc2900-412a-11eb-8c05-a588963ba474.png)
+![Untitleaaaaaaaaaaaaa1](https://user-images.githubusercontent.com/58360416/102597300-7f4bb800-412b-11eb-89e8-174d8b3ed00e.png)
+
 
 
 ![asdasd](https://user-images.githubusercontent.com/58360416/102597085-2a0fa680-412b-11eb-8288-76df780be168.png)
