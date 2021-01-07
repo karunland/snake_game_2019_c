@@ -141,7 +141,7 @@ int main()
 						if ( snake[ loop+1 ] == snake[ j ]){
 							ak++;
 							if(ak>0){
-								gotoxy(30,26);printf("\nGAME IS OVER \nSCORE IS %d",score);
+								gotoxy(30,27);printf("\nGAME IS OVER \nSCORE IS %d",score);
 								getch();
 								
 								return 0; // if snake eats itselves game will be over
@@ -223,9 +223,10 @@ int main()
 			{
 				score++ ; i++ ;
 				printf("\a");
+				
 				srand(time(NULL));
-				x1 = (rand() % width-2) + 1; // apple s locatıon x axis
-				y1 = (rand() % height-2)+ 1; // y axis
+				x1 = (rand() % 75) + 1; // apple s locatıon x axis
+				y1 = (rand() % 23 )+ 1; // y axis
 				
 				if ( snake[ i - 2 ] / 100 - snake[ i-1 ] / 100 != 0 || snake[ i - 1 ] / 100 - snake[ i - 2 ] / 100 != 0 )   // we don't and can't know where the tail of snake is so ıf we calculate the last 2 columnm or line  
 				{																											// we ll know where we gonna add taıl : ) 
