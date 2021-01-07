@@ -249,8 +249,8 @@ int main()
 				}
 
 			}
-			gotoxy(width+2,height+2);printf("head:%d:x,%d:y", snake[0]/100, snake[0]%100);
-			gotoxy(width+2,height+3);printf("apple:%d:x,%d:y", x1, y1);
+			gotoxy(0, height+2);printf("head:x:%d,y:%d", snake[0]/100, snake[0]%100);
+			gotoxy(0, height+3);printf("apple:x:%d:x,y:%d", x1, y1);
 			frame();
 			print_snake(snake, i);
 			apple( x1 , y1 );
