@@ -94,10 +94,10 @@ int main()
 	boolean decision=FALSE;
 
 	srand(time(NULL));
-	a = rand() %  width-4  + 1;  // snake s loca +4, the reason ıs snake s stock longness is 4 block       " #### "
-	b = rand() %  height-1 + 1;  // 
-	x1 = rand() % width-4 + 1; // apple s locatıon x axis
-	y1 = rand() % height-1+ 1; // y axis
+	a = (rand() %  width-5  ) + 4;  // snake s loca +4, the reason ıs snake s stock longness is 4 block       " #### "
+	b = (rand() %  height-5 ) + 4;  // 
+	x1 = (rand() % width-2  ) + 1; // apple s locatıon x axis
+	y1 = (rand() % height-2 ) + 1; // y axis
 	
 	for (f=0;f<5;f++ ){ 					 // random place for snake to start 
 		snake[f]=(a-f)*100+b;
@@ -109,7 +109,9 @@ int main()
 		print_snake(snake, i);
 		frame();       		
 		apple( x1 , y1 );    				 // start screen thıs 3 lines going to work
-		
+		gotoxy(0, height+1);printf("head:x:%d,y:%d", snake[0]/100, snake[0]%100);
+		gotoxy(0, height+2);printf("apple:x:%d:x,y:%d", x1, y1);
+		gotoxy(30,26);printf("Snake's length :%d " , i-1 );
 		
 		
 		yon = getch();  	         
@@ -222,8 +224,8 @@ int main()
 				score++ ; i++ ;
 				printf("\a");
 				srand(time(NULL));
-				x1 = rand() % width-4 + 1; // apple s locatıon x axis
-				y1 = rand() % height-1+ 1; // y axis
+				x1 = (rand() % width-2) + 1; // apple s locatıon x axis
+				y1 = (rand() % height-2)+ 1; // y axis
 				
 				if ( snake[ i - 2 ] / 100 - snake[ i-1 ] / 100 != 0 || snake[ i - 1 ] / 100 - snake[ i - 2 ] / 100 != 0 )   // we don't and can't know where the tail of snake is so ıf we calculate the last 2 columnm or line  
 				{																											// we ll know where we gonna add taıl : ) 
@@ -249,12 +251,13 @@ int main()
 				}
 
 			}
-			gotoxy(0, height+2);printf("head:x:%d,y:%d", snake[0]/100, snake[0]%100);
-			gotoxy(0, height+3);printf("apple:x:%d:x,y:%d", x1, y1);
+			gotoxy(0, height+1);printf("head:x:%d,y:%d", snake[0]/100, snake[0]%100);
+			gotoxy(0, height+2);printf("apple:x:%d:x,y:%d", x1, y1);
+			gotoxy(30,26);printf("Snake's length :%d " , i-1 );
 			frame();
 			print_snake(snake, i);
 			apple( x1 , y1 );
-			gotoxy(30,26);printf("Snake's length :%d " , i-1 );
+			
 
 		} while (!kbhit());}
 	}
