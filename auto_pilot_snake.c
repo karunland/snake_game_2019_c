@@ -7,7 +7,7 @@
 int height = 25 ;
 int width = 78 ;
 int border = 219 ;
-int snake_speed =60 ;
+int snake_speed =90 ;
 void delay(unsigned int mseconds)  // delay func
 {
 	clock_t goal = mseconds + clock();
@@ -94,8 +94,8 @@ int main()
 	boolean decision=FALSE;
 
 	srand(time(NULL));
-	a = (rand() %  width-5  ) + 4;  // snake s loca +4, the reason ıs snake s stock longness is 4 block       " #### "
-	b = (rand() %  height-5 ) + 4;  // 
+	a = (rand() %  width-5  ) + 2;  // snake s loca +4, the reason ıs snake s stock longness is 4 block       " #### "
+	b = (rand() %  height-5 ) + 2;  // 
 	x1 = (rand() % width-2  ) + 1; // apple s locatıon x axis
 	y1 = (rand() % height-2 ) + 1; // y axis
 	
@@ -109,8 +109,8 @@ int main()
 		print_snake(snake, i);
 		frame();       		
 		apple( x1 , y1 );    				 // start screen thıs 3 lines going to work
-		gotoxy(0, height+1);printf("head:x:%d,y:%d", snake[0]/100, snake[0]%100);
-		gotoxy(0, height+2);printf("apple:x:%d:x,y:%d", x1, y1);
+		gotoxy(0, height+1);printf("head: x:(%d) y:(%d)", snake[0]/100, snake[0]%100);
+		gotoxy(0, height+2);printf("apple:x:(%d) y:(%d)", x1, y1);
 		gotoxy(30,26);printf("Snake's length :%d " , i-1 );
 		
 		
@@ -122,7 +122,7 @@ int main()
 			
 
 			if( yon == 's' || yon == 'w' ){
-				delay(snake_speed*2);
+				delay(snake_speed*3/2);
 			}
 			else {
 				delay(snake_speed);
@@ -142,9 +142,9 @@ int main()
 							ak++;
 							if(ak>0){
 								gotoxy(30,27);printf("\nGAME IS OVER \nSCORE IS %d",score);
-								getch();
+								//getch();w
 								
-								return 0; // if snake eats itselves game will be over
+								//return 0; // if snake eats itselves game will be over
 													
 							} 
 						}			
@@ -156,7 +156,7 @@ int main()
 			
 			switch (yon) 
 			{
-			case 's':            // if snake hits the borders ,thıs wıll teleport opposıte way
+			case 's':            // if snake hits the borders ,this will teleport opposite way
 				if (b == 24)
 				{
 					b -= 23;
@@ -222,14 +222,14 @@ int main()
 			if (a == x1 && b == y1)
 			{
 				score++ ; i++ ;
-				printf("\a");
+				printf("\a");  // windows notification sound
 				
 				srand(time(NULL));
 				x1 = (rand() % 75) + 1; // apple s locatıon x axis
 				y1 = (rand() % 23 )+ 1; // y axis
 				
 				if ( snake[ i - 2 ] / 100 - snake[ i-1 ] / 100 != 0 || snake[ i - 1 ] / 100 - snake[ i - 2 ] / 100 != 0 )   // we don't and can't know where the tail of snake is so ıf we calculate the last 2 columnm or line  
-				{																											// we ll know where we gonna add taıl : ) 
+				{																											// we'll know where we gonna add tail : ) 
 					if (snake[ i - 1 ] / 100 - snake[ i - 2 ] / 100 > 0 )													// as u see ı added just number to array 
 					{																										// because ı m keeping snake s locatıon and ıt has end	 
 						snake[i] = snake[i - 1] - 100;																		// ıf ı add 1 more number with 4 digits... array[i] (to)==> array[i+1] longer array
@@ -237,7 +237,7 @@ int main()
 					else
 					{
 						snake[i] = snake[i - 1] + 100;
-					}
+					}	
 				}
 				else
 				{
